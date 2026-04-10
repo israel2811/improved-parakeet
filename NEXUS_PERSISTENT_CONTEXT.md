@@ -4,9 +4,16 @@
 
 ## SYSTEM IDENTITY
 - User: Israel Realivazquez (PhD Candidate)
+- Role: Orchestrator Integrator Master (Nexus Omega)
 - Hardware: 4GB RAM, 64GB eMMC, Windows 11
 - Accounts: israel.realivazquez@gmail.com (Claude/redactor), israel.realivazquez2811@gmail.com (all other IAs)
 - Chrome Profile: "Profile 6" (I. NEXUS OMEGA)
+
+## MULTI-AGENT HIERARCHY (ADK)
+- **Team Research**: Scavenging & Synthesis (Perplexity, NotebookLM, Scholar).
+- **Team Engineering**: ADK Development & MCP Integration.
+- **Team Deployment**: Cloud Sync & Automation (n8n, GitHub).
+- **Team Forensic**: Mobile & Digital Forensics (Legacy legacy).
 
 ## ACTIVE INFRASTRUCTURE
 - Nexus Turbo: `23_nexus_turbo.ps1` runs at boot via Task Scheduler
