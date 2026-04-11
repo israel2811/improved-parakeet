@@ -1,21 +1,20 @@
 {
-    "name": "Nexus Omega Offloader",
-    "image": "mcr.microsoft.com/devcontainers/python:3.11",
-    "features": {
-        "ghcr.io/devcontainers/features/sshd:1": {
-            "version": "latest"
-        }
-    },
-    "postCreateCommand": "pip install python-docx playwright && playwright install chromium && bash setup_codespace_brain.sh &",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-python.python"
-            ]
-        }
-    },
-    "forwardPorts": [
-        8000,
-        8080
-    ]
+  "name": "Nexus Omega Cloud Workspace",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/node-js:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "GitHub.vscode-pull-request-github",
+        "ms-azuretools.vscode-docker",
+        "rangav.vscode-thunder-client"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install streamlit langchain-community langchain-google-genai huggingface_hub chromadb && npm install -g @modelcontextprotocol/server-gdrive @modelcontextprotocol/server-playwright",
+  "remoteUser": "vscode"
 }
