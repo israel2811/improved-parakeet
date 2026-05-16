@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔱 Nexus Unified Corpus Viewer - DEMO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0c;
+            --bg-secondary: #16161a;
+            --bg-tertiary: #1e1e24;
+            --text-primary: #e0e0e6;
+            --text-secondary: #a0a0a8;
+            --accent: #00d2ff;
+            --accent-dim: #0099cc;
+            --border: #2a2a30;
+            --success: #00ff88;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border-radius: 15px;
+            border: 2px solid var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        .conversation {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .conv-header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .ai-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--accent-dim);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .message {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-tertiary);
+            border-left: 4px solid var(--accent);
+            border-radius: 5px;
+        }
+
+        .message.assistant {
+            border-left-color: var(--success);
+            background: #1a1e1a;
+        }
+
+        .message-role {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .message-content {
+            color: var(--text-primary);
+            white-space: pre-wrap;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .demo-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🎮 MODO DEMOSTRACIÓN - Sistema Nexus Omega completamente funcional
+    </div>
+
+    <div class="header">
+        <h1>🔱 NEXUS CORPUS VIEWER</h1>
+        <p>Sistema de Orquestación Multi-Plataforma para Investigación Doctoral</p>
+        <p style="margin-top: 1rem; color: var(--text-secondary);">Israel Realivazquez • PhD Research</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="total-convs">0</div>
+            <div class="stat-label">Conversaciones</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="total-msgs">0</div>
+            <div class="stat-label">Mensajes</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="total-sources">0</div>
+            <div class="stat-label">Fuentes</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="ai-types">0</div>
+            <div class="stat-label">Tipos de IA</div>
+        </div>
+    </div>
+
+    <input type="text" class="search-box" id="search" placeholder="🔍 Buscar en el corpus..." />
+
+    <div id="conversations"></div>
+
+    <script>
+        const corpus = {"version": "1.0.0", "created_at": "2026-05-16T14:28:07.131756", "system": "Nexus Omega Demo", "owner": "Israel Realivazquez", "sources": {"demo_dropbox": ["chatgpt_reconstructed.json"], "demo_onedrive": ["claude_reconstructed.json"], "demo_gdrive": ["gemini_reconstructed.json"]}, "statistics": {"total_conversations": 3, "total_messages": 14, "total_sources": 3, "ai_types": {"chatgpt": 1, "claude": 1, "gemini": 1}}, "conversations": [{"metadata": {"ai_type": "chatgpt", "source": "demo_dropbox", "reconstructed_at": "2026-05-16T14:28:07.131198"}, "messages": [{"role": "user", "content": "Explícame la anatomía del sistema auditivo central, específicamente las vías desde la cóclea hasta la corteza auditiva primaria.", "timestamp": 1704067200, "id": "msg_1"}, {"role": "assistant", "content": "El sistema auditivo central comprende una serie de núcleos y vías neuronales. La información auditiva parte de las células ciliadas de la cóclea, viaja por el nervio auditivo (VIII par craneal) hacia el núcleo coclear. Desde allí, las neuronas de segundo orden proyectan al complejo olivar superior, que es crucial para la localización del sonido. Las proyecciones continúan hacia el colículo inferior en el mesencéfalo, luego al núcleo geniculado medial del tálamo, y finalmente a la corteza auditiva primaria (área 41 de Brodmann) en el giro temporal superior.", "timestamp": 1704067215, "id": "msg_2"}, {"role": "user", "content": "¿Cómo se relaciona esto con la percepción del habla y la vocología?", "timestamp": 1704067300, "id": "msg_3"}, {"role": "assistant", "content": "La percepción del habla requiere procesamiento especializado. Las áreas de Wernicke (área 22) y Broca (área 44-45) están interconectadas con la corteza auditiva. En vocología, entendemos que la producción vocal implica coordinación entre control motor (corteza motora) y retroalimentación auditiva. Los cantantes, por ejemplo, desarrollan representaciones auditivo-motoras más refinadas. Esta integración sensoriomotora es fundamental para el aprendizaje vocal y la corrección de errores en tiempo real.", "timestamp": 1704067330, "id": "msg_4"}, {"role": "user", "content": "Mi hipótesis es que existe una relación directa entre la precisión de la representación neuroanatómica del tracto vocal y la calidad de producción vocal. ¿Qué literatura respalda esto?", "timestamp": 1705276800, "id": "msg_5"}, {"role": "assistant", "content": "Tu hipótesis conecta con varios líneas de investigación: 1) Los estudios de neuroimagen (fMRI) en cantantes profesionales muestran mayor activación en áreas premotoras y somatosensoriales durante tareas vocales (Kleber et al., 2010). 2) La teoría del control motor predictivo sugiere que el cerebro mantiene modelos internos del aparato vocal (Guenther & Vladusich, 2012). 3) Investigaciones en vocología han documentado que la consciencia propioceptiva del tracto vocal se correlaciona con mejor técnica vocal (Sundberg, 1987). Estos hallazgos respaldan que las representaciones neurales precisas son fundamentales para la producción vocal experta.", "timestamp": 1705276850, "id": "msg_6"}]}, {"metadata": {"ai_type": "claude", "source": "demo_onedrive", "reconstructed_at": "2026-05-16T14:28:07.131282"}, "messages": [{"role": "user", "content": "Necesito ayuda para estructurar mi tesis doctoral sobre neuroanatomía aplicada a la comunicación auditiva. ¿Por dónde empiezo?", "timestamp": "2024-03-15T10:30:00Z", "id": "claude_msg_1"}, {"role": "assistant", "content": "Para estructurar una tesis en este campo interdisciplinario, sugiero el siguiente esquema: CAPÍTULO 1: Introducción y Fundamentos Neuroanatómicos - Anatomía del sistema auditivo periférico y central - Bases neurales de la percepción auditiva. CAPÍTULO 2: Comunicación Auditiva - Procesamiento del habla - Integración auditivo-motora - Modelos de percepción-producción. CAPÍTULO 3: Aplicaciones en Vocología - Anatomía funcional del tracto vocal - Control neural de la fonación - Retroalimentación auditiva en producción vocal. CAPÍTULO 4: Metodología - Diseño del estudio - Técnicas de neuroimagen - Análisis acústico. CAPÍTULO 5: Resultados y Discusión. CAPÍTULO 6: Conclusiones e Implicaciones Clínicas.", "timestamp": "2024-03-15T10:35:00Z", "id": "claude_msg_2"}, {"role": "user", "content": "¿Qué metodologías recomiendas para estudiar la relación entre representación neuronal y producción vocal?", "timestamp": "2024-03-15T10:40:00Z", "id": "claude_msg_3"}, {"role": "assistant", "content": "Metodologías recomendadas: 1) fMRI funcional durante tareas de producción vocal controlada para mapear áreas activadas. 2) Electromiografía (EMG) laríngea para medir actividad muscular precisa. 3) Análisis acústico de alta resolución (espectrogramas, análisis de formantes). 4) Estimulación magnética transcraneal (TMS) para estudiar causalidad en control motor. 5) Estudios longitudinales con entrenamiento vocal para observar plasticidad neural. 6) Modelado computacional de circuitos auditivo-motores. Esta combinación de técnicas permite triangular evidencia desde múltiples niveles de análisis.", "timestamp": "2024-03-15T10:45:00Z", "id": "claude_msg_4"}]}, {"metadata": {"ai_type": "gemini", "source": "demo_gdrive", "reconstructed_at": "2026-05-16T14:28:07.131339"}, "messages": [{"role": "user", "content": "¿Cuáles son las diferencias clave entre el procesamiento auditivo en hablantes nativos vs. cantantes profesionales desde una perspectiva neuroanatómica?", "timestamp": "2024-04-20T14:00:00Z", "id": "gemini_turn_1"}, {"role": "model", "content": "Las diferencias neuroanatómicas entre hablantes nativos y cantantes profesionales son significativas: ESTRUCTURALES: Estudios de morfometría basada en vóxeles (VBM) muestran que cantantes tienen mayor volumen de materia gris en: 1) Giro temporal superior (procesamiento auditivo fino), 2) Áreas motoras suplementarias (coordinación respiratoria), 3) Cerebelo (timing preciso). FUNCIONALES: fMRI muestra que cantantes exhiben: 1) Mayor conectividad entre corteza auditiva y motora, 2) Activación bilateral más balanceada (hablantes muestran lateralización izquierda), 3) Respuestas más robustas en áreas de procesamiento prosódico. PLASTICIDAD: El entrenamiento vocal intensivo induce cambios estructurales detectables en tan solo 6 meses, especialmente en tractos de sustancia blanca (fascículo arqueado). Estos cambios reflejan la especialización del cerebro para el control vocal experto.", "timestamp": "2024-04-20T14:01:00Z", "id": "gemini_turn_2"}, {"role": "user", "content": "Esto es fascinante. ¿Hay implicaciones para rehabilitación de trastornos vocales?", "timestamp": "2024-04-20T14:05:00Z", "id": "gemini_turn_3"}, {"role": "model", "content": "Absolutamente. Las implicaciones clínicas son profundas: REHABILITACIÓN NEUROPLÁSTICA: Sabiendo que el entrenamiento vocal induce cambios estructurales, podemos diseñar protocolos específicos para pacientes con disfonía. BIOFEEDBACK AUDITIVO: Sistemas de retroalimentación en tiempo real aprovechan la integración auditivo-motora para recalibrar patrones vocales. TERAPIA BASADA EN NEUROIMAGEN: Identificar déficits específicos (ej. conectividad auditivo-motora reducida) permite tratamientos personalizados. PREVENCIÓN: Entender los mecanismos neurales del esfuerzo vocal excesivo puede prevenir lesiones en profesionales de la voz. Tu investigación doctoral podría contribuir directamente a estos desarrollos clínicos.", "timestamp": "2024-04-20T14:06:00Z", "id": "gemini_turn_4"}]}], "analysis_metadata": {"claude_analysis_ready": true, "recommended_approach": "sequential_conversation_analysis", "analysis_prompts": ["Analiza las ideas originales de Israel sobre neuroanatomía y comunicación auditiva", "Extrae conceptos clave relacionados con vocología sistémica", "Identifica puentes entre CCA (Comunicación Auditiva) y AAV (Anatomía y Vocología)", "Genera estructura de tesis doctoral basada en el corpus completo"]}};
+
+        // Renderizar estadísticas
+        document.getElementById('total-convs').textContent = corpus.statistics.total_conversations;
+        document.getElementById('total-msgs').textContent = corpus.statistics.total_messages;
+        document.getElementById('total-sources').textContent = corpus.statistics.total_sources;
+        document.getElementById('ai-types').textContent = Object.keys(corpus.statistics.ai_types).length;
+
+        // Renderizar conversaciones
+        const container = document.getElementById('conversations');
+
+        corpus.conversations.forEach((conv, idx) => {
+            const div = document.createElement('div');
+            div.className = 'conversation';
+
+            const aiType = conv.metadata.ai_type;
+            const source = conv.metadata.source;
+
+            let html = `
+                <div class="conv-header">
+                    <div class="ai-badge">${aiType.toUpperCase()}</div>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Fuente: ${source} • ${conv.messages.length} mensajes
+                    </div>
+                </div>
+            `;
+
+            conv.messages.forEach((msg, msgIdx) => {
+                html += `
+                    <div class="message ${msg.role}">
+                        <div class="message-role">${msg.role.toUpperCase()}</div>
+                        <div class="message-content">${msg.content}</div>
+                    </div>
+                `;
+            });
+
+            div.innerHTML = html;
+            container.appendChild(div);
+        });
+
+        // Búsqueda
+        document.getElementById('search').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const convs = document.querySelectorAll('.conversation');
+
+            convs.forEach(conv => {
+                const text = conv.textContent.toLowerCase();
+                conv.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+        

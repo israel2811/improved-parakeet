@@ -1,0 +1,76 @@
+{
+  "conversations": [
+    {
+      "title": "Neuroanatomía del Sistema Auditivo",
+      "create_time": 1704067200,
+      "mapping": {
+        "msg_1": {
+          "message": {
+            "id": "msg_1",
+            "author": {"role": "user"},
+            "create_time": 1704067200,
+            "content": {
+              "parts": ["Explícame la anatomía del sistema auditivo central, específicamente las vías desde la cóclea hasta la corteza auditiva primaria."]
+            }
+          }
+        },
+        "msg_2": {
+          "message": {
+            "id": "msg_2",
+            "author": {"role": "assistant"},
+            "create_time": 1704067215,
+            "content": {
+              "parts": ["El sistema auditivo central comprende una serie de núcleos y vías neuronales. La información auditiva parte de las células ciliadas de la cóclea, viaja por el nervio auditivo (VIII par craneal) hacia el núcleo coclear. Desde allí, las neuronas de segundo orden proyectan al complejo olivar superior, que es crucial para la localización del sonido. Las proyecciones continúan hacia el colículo inferior en el mesencéfalo, luego al núcleo geniculado medial del tálamo, y finalmente a la corteza auditiva primaria (área 41 de Brodmann) en el giro temporal superior."]
+            }
+          }
+        },
+        "msg_3": {
+          "message": {
+            "id": "msg_3",
+            "author": {"role": "user"},
+            "create_time": 1704067300,
+            "content": {
+              "parts": ["¿Cómo se relaciona esto con la percepción del habla y la vocología?"]
+            }
+          }
+        },
+        "msg_4": {
+          "message": {
+            "id": "msg_4",
+            "author": {"role": "assistant"},
+            "create_time": 1704067330,
+            "content": {
+              "parts": ["La percepción del habla requiere procesamiento especializado. Las áreas de Wernicke (área 22) y Broca (área 44-45) están interconectadas con la corteza auditiva. En vocología, entendemos que la producción vocal implica coordinación entre control motor (corteza motora) y retroalimentación auditiva. Los cantantes, por ejemplo, desarrollan representaciones auditivo-motoras más refinadas. Esta integración sensoriomotora es fundamental para el aprendizaje vocal y la corrección de errores en tiempo real."]
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Investigación Doctoral - Hipótesis Principal",
+      "create_time": 1705276800,
+      "mapping": {
+        "msg_1": {
+          "message": {
+            "id": "msg_5",
+            "author": {"role": "user"},
+            "create_time": 1705276800,
+            "content": {
+              "parts": ["Mi hipótesis es que existe una relación directa entre la precisión de la representación neuroanatómica del tracto vocal y la calidad de producción vocal. ¿Qué literatura respalda esto?"]
+            }
+          }
+        },
+        "msg_2": {
+          "message": {
+            "id": "msg_6",
+            "author": {"role": "assistant"},
+            "create_time": 1705276850,
+            "content": {
+              "parts": ["Tu hipótesis conecta con varios líneas de investigación: 1) Los estudios de neuroimagen (fMRI) en cantantes profesionales muestran mayor activación en áreas premotoras y somatosensoriales durante tareas vocales (Kleber et al., 2010). 2) La teoría del control motor predictivo sugiere que el cerebro mantiene modelos internos del aparato vocal (Guenther & Vladusich, 2012). 3) Investigaciones en vocología han documentado que la consciencia propioceptiva del tracto vocal se correlaciona con mejor técnica vocal (Sundberg, 1987). Estos hallazgos respaldan que las representaciones neurales precisas son fundamentales para la producción vocal experta."]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

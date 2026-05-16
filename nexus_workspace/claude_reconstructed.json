@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "ai_type": "claude",
+    "source": "demo_onedrive",
+    "reconstructed_at": "2026-05-16T14:28:07.131282"
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "Necesito ayuda para estructurar mi tesis doctoral sobre neuroanatomía aplicada a la comunicación auditiva. ¿Por dónde empiezo?",
+      "timestamp": "2024-03-15T10:30:00Z",
+      "id": "claude_msg_1"
+    },
+    {
+      "role": "assistant",
+      "content": "Para estructurar una tesis en este campo interdisciplinario, sugiero el siguiente esquema: CAPÍTULO 1: Introducción y Fundamentos Neuroanatómicos - Anatomía del sistema auditivo periférico y central - Bases neurales de la percepción auditiva. CAPÍTULO 2: Comunicación Auditiva - Procesamiento del habla - Integración auditivo-motora - Modelos de percepción-producción. CAPÍTULO 3: Aplicaciones en Vocología - Anatomía funcional del tracto vocal - Control neural de la fonación - Retroalimentación auditiva en producción vocal. CAPÍTULO 4: Metodología - Diseño del estudio - Técnicas de neuroimagen - Análisis acústico. CAPÍTULO 5: Resultados y Discusión. CAPÍTULO 6: Conclusiones e Implicaciones Clínicas.",
+      "timestamp": "2024-03-15T10:35:00Z",
+      "id": "claude_msg_2"
+    },
+    {
+      "role": "user",
+      "content": "¿Qué metodologías recomiendas para estudiar la relación entre representación neuronal y producción vocal?",
+      "timestamp": "2024-03-15T10:40:00Z",
+      "id": "claude_msg_3"
+    },
+    {
+      "role": "assistant",
+      "content": "Metodologías recomendadas: 1) fMRI funcional durante tareas de producción vocal controlada para mapear áreas activadas. 2) Electromiografía (EMG) laríngea para medir actividad muscular precisa. 3) Análisis acústico de alta resolución (espectrogramas, análisis de formantes). 4) Estimulación magnética transcraneal (TMS) para estudiar causalidad en control motor. 5) Estudios longitudinales con entrenamiento vocal para observar plasticidad neural. 6) Modelado computacional de circuitos auditivo-motores. Esta combinación de técnicas permite triangular evidencia desde múltiples niveles de análisis.",
+      "timestamp": "2024-03-15T10:45:00Z",
+      "id": "claude_msg_4"
+    }
+  ]
+}

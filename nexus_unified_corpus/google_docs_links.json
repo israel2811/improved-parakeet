@@ -1,0 +1,26 @@
+{
+  "master_index": "https://docs.google.com/document/d/DEMO_MASTER_INDEX/edit",
+  "folders": {
+    "chatgpt": [
+      {
+        "title": "Nexus_chatgpt_20260516",
+        "url": "https://docs.google.com/document/d/DEMO_CHATGPT/edit",
+        "messages": 6
+      }
+    ],
+    "claude": [
+      {
+        "title": "Nexus_claude_20260516",
+        "url": "https://docs.google.com/document/d/DEMO_CLAUDE/edit",
+        "messages": 4
+      }
+    ],
+    "gemini": [
+      {
+        "title": "Nexus_gemini_20260516",
+        "url": "https://docs.google.com/document/d/DEMO_GEMINI/edit",
+        "messages": 4
+      }
+    ]
+  }
+}
