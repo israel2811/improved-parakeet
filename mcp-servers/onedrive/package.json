@@ -1,0 +1,20 @@
+{
+  "name": "@nexus/mcp-server-onedrive",
+  "version": "1.0.0",
+  "description": "MCP Server para OneDrive con reconstrucción de conversaciones IA",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["mcp", "onedrive", "microsoft", "nexus", "ai-conversations"],
+  "author": "Israel Realivazquez",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "@azure/msal-node": "^2.6.6",
+    "dotenv": "^16.4.5"
+  }
+}

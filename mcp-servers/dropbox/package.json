@@ -1,0 +1,19 @@
+{
+  "name": "@nexus/mcp-server-dropbox",
+  "version": "1.0.0",
+  "description": "MCP Server para Dropbox con reconstrucción de conversaciones IA",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["mcp", "dropbox", "nexus", "ai-conversations"],
+  "author": "Israel Realivazquez",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "dropbox": "^10.34.0",
+    "dotenv": "^16.4.5"
+  }
+}
