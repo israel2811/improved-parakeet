@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCA/NEXUS - Gemini Conversation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        .metadata {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        .metadata h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 18px;
+        }
+        .metadata table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .metadata td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .metadata td:first-child {
+            font-weight: bold;
+            color: #667eea;
+            width: 250px;
+        }
+        .message {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .message.user {
+            border-left: 4px solid #4CAF50;
+        }
+        .message.assistant {
+            border-left: 4px solid #2196F3;
+        }
+        .message.system {
+            border-left: 4px solid #FF9800;
+            background: #FFF8E1;
+        }
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .role {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        .role.user { color: #4CAF50; }
+        .role.assistant { color: #2196F3; }
+        .role.system { color: #FF9800; }
+        .timestamp {
+            font-size: 11px;
+            color: #999;
+        }
+        .content {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #333;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔱 CCA/NEXUS - Reconstrucción Conversacional</h1>
+        <p style="margin: 0; opacity: 0.9;">Gemini Conversation</p>
+    </div>
+
+    <div class="metadata">
+        <h2>📋 Metadatos de la Conversación</h2>
+        <table>
+            <tr>
+                <td>Plataforma:</td>
+                <td><strong>Gemini</strong></td>
+            </tr>
+            <tr>
+                <td>Título:</td>
+                <td>Gemini Conversation</td>
+            </tr>
+            <tr>
+                <td>ID Conversación:</td>
+                <td><code>gemini_f73a7db5303b</code></td>
+            </tr>
+            <tr>
+                <td>Archivo fuente:</td>
+                <td><code>demo_data/exports/gemini_conversations.json</code></td>
+            </tr>
+            <tr>
+                <td>Hash fuente (SHA-256):</td>
+                <td><code style="font-size: 10px;">1843c96f5524300b359253ded1313ca06835a0ebe197bc01ac344cbbb0603836</code></td>
+            </tr>
+            <tr>
+                <td>Fecha de conversación:</td>
+                <td>2024-04-20T14:00:00Z</td>
+            </tr>
+            <tr>
+                <td>Fecha de reconstrucción:</td>
+                <td>2026-05-31T10:13:11.435616</td>
+            </tr>
+            <tr>
+                <td>Estado de reconstrucción:</td>
+                <td><strong style="color: #4CAF50;">✅ Reconstruida completa</strong></td>
+            </tr>
+            <tr>
+                <td>Total de mensajes:</td>
+                <td><strong>4</strong></td>
+            </tr>
+            <tr>
+                <td>Mensajes de usuario:</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Mensajes de asistente:</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Mensajes de sistema:</td>
+                <td>0</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2 style="color: #333; border-bottom: 2px solid #667eea; padding-bottom: 10px;">💬 Conversación Completa</h2>
+
+    <div class="message user">
+        <div class="message-header">
+            <span class="role user">Turno 1 - user</span>
+            <span class="timestamp">2024-04-20T14:00:00Z</span>
+        </div>
+        <div style="font-size: 11px; color: #999; margin-bottom: 10px;">ID: <code>gemini_turn_1</code></div>
+        <div class="content">¿Cuáles son las diferencias clave entre el procesamiento auditivo en hablantes nativos vs. cantantes profesionales desde una perspectiva neuroanatómica?</div>
+    </div>
+
+    <div class="message assistant">
+        <div class="message-header">
+            <span class="role assistant">Turno 2 - model</span>
+            <span class="timestamp">2024-04-20T14:01:00Z</span>
+        </div>
+        <div style="font-size: 11px; color: #999; margin-bottom: 10px;">ID: <code>gemini_turn_2</code></div>
+        <div class="content">Las diferencias neuroanatómicas entre hablantes nativos y cantantes profesionales son significativas: ESTRUCTURALES: Estudios de morfometría basada en vóxeles (VBM) muestran que cantantes tienen mayor volumen de materia gris en: 1) Giro temporal superior (procesamiento auditivo fino), 2) Áreas motoras suplementarias (coordinación respiratoria), 3) Cerebelo (timing preciso). FUNCIONALES: fMRI muestra que cantantes exhiben: 1) Mayor conectividad entre corteza auditiva y motora, 2) Activación bilateral más balanceada (hablantes muestran lateralización izquierda), 3) Respuestas más robustas en áreas de procesamiento prosódico. PLASTICIDAD: El entrenamiento vocal intensivo induce cambios estructurales detectables en tan solo 6 meses, especialmente en tractos de sustancia blanca (fascículo arqueado). Estos cambios reflejan la especialización del cerebro para el control vocal experto.</div>
+    </div>
+
+    <div class="message user">
+        <div class="message-header">
+            <span class="role user">Turno 3 - user</span>
+            <span class="timestamp">2024-04-20T14:05:00Z</span>
+        </div>
+        <div style="font-size: 11px; color: #999; margin-bottom: 10px;">ID: <code>gemini_turn_3</code></div>
+        <div class="content">Esto es fascinante. ¿Hay implicaciones para rehabilitación de trastornos vocales?</div>
+    </div>
+
+    <div class="message assistant">
+        <div class="message-header">
+            <span class="role assistant">Turno 4 - model</span>
+            <span class="timestamp">2024-04-20T14:06:00Z</span>
+        </div>
+        <div style="font-size: 11px; color: #999; margin-bottom: 10px;">ID: <code>gemini_turn_4</code></div>
+        <div class="content">Absolutamente. Las implicaciones clínicas son profundas: REHABILITACIÓN NEUROPLÁSTICA: Sabiendo que el entrenamiento vocal induce cambios estructurales, podemos diseñar protocolos específicos para pacientes con disfonía. BIOFEEDBACK AUDITIVO: Sistemas de retroalimentación en tiempo real aprovechan la integración auditivo-motora para recalibrar patrones vocales. TERAPIA BASADA EN NEUROIMAGEN: Identificar déficits específicos (ej. conectividad auditivo-motora reducida) permite tratamientos personalizados. PREVENCIÓN: Entender los mecanismos neurales del esfuerzo vocal excesivo puede prevenir lesiones en profesionales de la voz. Tu investigación doctoral podría contribuir directamente a estos desarrollos clínicos.</div>
+    </div>
+
+    <div class="footer">
+        <p>🔱 Proyecto CCA/NEXUS - Reconstrucción Conversacional Documental</p>
+        <p>Documento generado automáticamente - NO modificar - Preservación epistémica total</p>
+    </div>
+</body>
+</html>
